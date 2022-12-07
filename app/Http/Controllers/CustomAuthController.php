@@ -69,4 +69,12 @@ class CustomAuthController extends Controller
         
         return view('dashboard', compact('data'));
     }
+
+    public function logout()
+    {
+        if (Session::has('loginId')) {
+            Session::pull('loginId');
+            return redirect('login');
+        }
+    }
 }
